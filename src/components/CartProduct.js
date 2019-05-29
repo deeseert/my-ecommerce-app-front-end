@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const Product = props => {
+const CartProduct = props => {
   const { product, handleClick, addToMyCart } = props;
   return (
     <React.Fragment>
@@ -44,7 +44,7 @@ const Product = props => {
               className="add-to-cart"
               to=""
               onClick={event => {
-                event.preventDefault()
+                event.preventDefault();
                 addToMyCart(product);
               }}
             >
@@ -57,4 +57,4 @@ const Product = props => {
   );
 };
 
-export default Product;
+export default CartProduct;

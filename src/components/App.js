@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import ProductList from "./ProductList";
 import ProductDetails from "./ProductDetails";
 import HomaPage from "./Homepage";
+import CartList from "./CartList";
 
 class App extends Component {
   state = {
@@ -13,6 +14,15 @@ class App extends Component {
     basket: [],
     selectedProduct: null,
     searchTerm: ""
+  };
+
+  addToMyCart = product => {
+    console.log("Add To Card Clicked!!!!");
+    const myCart = this.state.basket;
+    const productFound = myCart.find(item => item.id === product.id);
+    if (!productFound) {
+      this.setState({ basket: [...this.state.basket, product] });
+    }
   };
 
   // const URL = "localhost/3000"
@@ -44,6 +54,18 @@ class App extends Component {
                 {...props}
                 products={this.state.products}
                 handleClick={this.viewdetails}
+                addToMyCart={this.addToMyCart}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/checkout"
+            component={props => (
+              <CartList
+                {...props}
+                basket={this.state.basket}
+                // selectedProduct={this.state.selectedProduct}
               />
             )}
           />

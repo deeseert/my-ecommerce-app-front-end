@@ -15,7 +15,11 @@ class ProductList extends Component {
         <div className="container">
           <div className="row">
             {this.props.products.map(product => (
-              <Product key={product.id} product={product} />
+              <Product
+                key={product.id}
+                product={product}
+                addToMyCart={this.props.addToMyCart}
+              />
             ))}
           </div>
         </div>

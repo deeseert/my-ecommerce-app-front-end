@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 // import Search from "./Search";
 
@@ -6,9 +7,9 @@ const Navbar = props => (
   <React.Fragment>
     <nav className="navbar navbar-expand-lg navbar-light bg-light static-top">
       <div className="container">
-        <a className="navbar-brand" href="#">
+        <NavLink className="navbar-brand" to="#">
           <img src="http://placehold.it/150x50?text=Logo" alt="" />
-        </a>
+        </NavLink>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,23 +24,23 @@ const Navbar = props => (
         <div className="collapse navbar-collapse" id="navbarResponsive">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/">
+              <NavLink className="nav-link" to="/">
                 Home
                 <span className="sr-only">(current)</span>
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/products">
+              <NavLink className="nav-link" to="/products">
                 Products
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/checkout">
+              <NavLink to="/checkout" className="nav-link">
                 Checkout
-              </a>
+              </NavLink>
             </li>
             <li>
-              <a className="glyphicon glyphicon-shopping-cart">ss</a>
+              <NavLink className="glyphicon glyphicon-shopping-cart">ss</NavLink>
             </li>
           </ul>
         </div>
