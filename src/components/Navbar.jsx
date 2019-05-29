@@ -40,7 +40,9 @@ const Navbar = props => (
               </NavLink>
             </li>
             <li>
-              <NavLink className="glyphicon glyphicon-shopping-cart">ss</NavLink>
+              <NavLink className="p-3 mb-2 bg-danger text-white">
+                {props.basket.length}
+              </NavLink>
             </li>
           </ul>
         </div>

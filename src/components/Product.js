@@ -1,12 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Product = props => {
   const { product, handleClick, addToMyCart } = props;
   return (
-    <React.Fragment>
-      <div className="col-md-3 col-sm-6">
-        {/* <Product handleClick={() => this.props.history.push(`/products/$`)} /> */}
+    <div className="col-md-3 col-sm-6">
+      {/* <Product handleClick={() => this.props.history.push(`/products/$`)} /> */}
+      <Link to={`/products/${product.id}`}>
         <div className="product-grid4">
           <div className="product-image4">
             <NavLink to="#">
@@ -44,7 +45,7 @@ const Product = props => {
               className="add-to-cart"
               to=""
               onClick={event => {
-                event.preventDefault()
+                event.preventDefault();
                 addToMyCart(product);
               }}
             >
@@ -52,8 +53,8 @@ const Product = props => {
             </NavLink>
           </div>
         </div>
-      </div>
-    </React.Fragment>
+      </Link>
+    </div>
   );
 };
 

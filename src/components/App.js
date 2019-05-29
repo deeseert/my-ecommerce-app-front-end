@@ -38,11 +38,16 @@ class App extends Component {
       selectedProduct: product
     });
   };
+  addToBasket = product => {
+    this.setState({
+      basket: [...this.state.basket, product]
+    });
+  };
 
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar products={this.state.products} basket={this.state.basket} />
         {/* Switch statement in order to create a 404 Page only in case the URL is wrong */}
         <Switch>
           <Route exact path="/" component={prop => <HomaPage />} />
@@ -69,18 +74,17 @@ class App extends Component {
               />
             )}
           />
-          {/* This below is the prop that will have id in params */}
           <Route
-            exact
             path="/products/:id"
             component={props => {
               const id = props.match.params.id;
               const product = this.state.products.find(
-                product => product.id === id
+                product => product.id == id
               );
-              // console.log(id)
-              if (this.state.products === 0) return <h1>Loading...</h1>;
-              if (this.state.products > 0 && product === undefined)
+
+              if (this.state.products.length === 0) return <h1>Loading...</h1>;
+
+              if (this.state.products.length > 0 && product === undefined)
                 return <h1>Product not found bro!</h1>;
 
               return <ProductDetails {...props} product={product} />;
