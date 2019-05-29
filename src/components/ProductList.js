@@ -4,18 +4,22 @@ class ProductList extends Component {
   render() {
     return (
       <React.Fragment>
-        <ul class="breadcrumb">
+        <ul className="breadcrumb">
           <li>
-            <a href="/">Home</a> <span class="divider">/</span>
+            <a href="/">Home</a> <span className="divider">/</span>
           </li>
           <li>
-            <a href="/products">Products</a> <span class="divider">/</span>
+            <a href="/products">Products</a> <span className="divider">/</span>
           </li>
         </ul>
         <div className="container">
           <div className="row">
             {this.props.products.map(product => (
-              <Product key={product.id} product={product} />
+              <Product
+                key={product.id}
+                product={product}
+                addToBasket={() => this.props.addToBasket(product)}
+              />
             ))}
           </div>
         </div>
