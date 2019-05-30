@@ -9,7 +9,8 @@ class ProductList extends Component {
             <a href="/">Home</a> <span className="divider">/</span>
           </li>
           <li>
-            <a href="/products">Products</a> <span className="divider">/</span>
+            <a href="/products">Products</a>{" "}
+            <span className="divider">/</span>
           </li>
         </ul>
         <div className="container">
@@ -19,6 +20,7 @@ class ProductList extends Component {
                 key={product.id}
                 product={product}
                 addToMyCart={this.props.addToMyCart}
+                viewDetails={this.props.viewDetails}
               />
             ))}
           </div>

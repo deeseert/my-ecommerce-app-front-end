@@ -3,9 +3,16 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Product = props => {
-  const { product, handleClick, addToMyCart } = props;
+  const { product, handleClick, addToMyCart, viewDetails } = props;
   return (
-    <div className="col-md-3 col-sm-6">
+    <div
+      className="col-md-3 col-sm-6"
+      onClick={event => {
+        event.preventDefault();
+        event.stopPropagation();
+        viewDetails(product);
+      }}
+    >
       {/* <Product handleClick={() => this.props.history.push(`/products/$`)} /> */}
       <Link to={`/products/${product.id}`}>
         <div className="product-grid4">
@@ -46,6 +53,7 @@ const Product = props => {
               to=""
               onClick={event => {
                 event.preventDefault();
+                event.stopPropagation();
                 addToMyCart(product);
               }}
             >

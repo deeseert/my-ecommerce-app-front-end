@@ -48,7 +48,7 @@ const CartProduct = props => {
                 addToMyCart(product);
               }}
             >
-              ADD TO CART
+              REMOVE FROM THE CART
             </NavLink>
           </div>
         </div>

@@ -1,19 +1,45 @@
 import React, { Component } from "react";
 
-import CartProduct from "./CartProduct";
+import { Route, Switch } from "react-router-dom";
+
+import Checkout from "./payment-form-components/Chekout";
+import SignUpSuccess from "./payment-form-components/SignUpSuccess";
 
 class CartList extends Component {
-  state = {
-    myBasketItems: [...this.props.basket]
-  };
+  state = {};
+
+  // handleSubmit = () => {
+  //   console.log("Submit clicked in the payment field");
+  // };
+
+  // handleSubmitForm = event => {
+  //   event.preventDefault();
+  //   console.log("Submit clicked in the payment field");
+  // };
 
   render() {
     return (
-      <React.Fragment>
-        {this.props.basket.map(product => (
-          <CartProduct product={product} />
-        ))}
-      </React.Fragment>
+      <div>
+        <Switch>
+          
+          <Route
+            exact
+            path={"/checkout"}
+            component={props => (
+              <Checkout
+                {...props}
+                basket={this.props.basket}
+                handleSubmit={this.handleSubmit}
+                handleSubmitForm={this.handleSubmitForm}
+              />
+            )}
+          />
+
+          <Route path={"/order-submitted"} component={props => ({ ...props })}>
+            <SignUpSuccess />
+          </Route>
+        </Switch>
+      </div>
     );
   }
 }
