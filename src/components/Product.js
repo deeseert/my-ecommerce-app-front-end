@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Product = props => {
-  const { product, handleClick, addToMyCart } = props;
+  const { product, addToMyCart } = props;
   return (
     <div className="col-md-3 col-sm-6">
       {/* <Product handleClick={() => this.props.history.push(`/products/$`)} /> */}

@@ -1,7 +1,9 @@
 import React from "react";
+import Product from "./Product";
 import { Link } from "react-router-dom";
 
 const ProductDetails = props => {
+  const { product, addToMyCart } = props;
   return (
     <div className="container">
       <div className="card">
@@ -10,33 +12,40 @@ const ProductDetails = props => {
             <div className="preview col-md-6">
               <div className="preview-pic tab-content">
                 <div className="tab-pane active" id="pic-1">
-                  <img src={props.product.img_url} />
+                  <img src={product.img_url} />
                 </div>
                 <div className="tab-pane" id="pic-2">
-                  <img src={props.product.backurl} />
+                  <img src={product.backurl} />
                 </div>
               </div>
               <ul className="preview-thumbnail nav nav-tabs">
                 <li className="active">
-                  <a data-target="#pic-1" data-toggle="tab">
-                    <img src={props.product.img_url} />
-                  </a>
+                  <Link data-target="#pic-1" data-toggle="tab">
+                    <img src={product.img_url} />
+                  </Link>
                 </li>
                 <li>
-                  <a data-target="#pic-2" data-toggle="tab">
-                    <img src={props.product.backurl} />
-                  </a>
+                  <Link data-target="#pic-2" data-toggle="tab">
+                    <img src={product.backurl} />
+                  </Link>
                 </li>
               </ul>
             </div>
             <div className="details col-md-6">
-              <h3 className="product-title">{props.product.name}</h3>
-              <p className="product-description">{props.product.description}</p>
+              <h3 className="product-title">{product.name}</h3>
+              <p className="product-description">{product.description}</p>
               <h3 className="price">
-                current price: <span>£{props.product.price}</span>
+                current price: <span>£{product.price}</span>
               </h3>
               <div className="action">
-                <button className="add-to-cart btn btn-default" type="button">
+                <button
+                  className="add-to-cart btn btn-default"
+                  type="button"
+                  onClick={event => {
+                    event.preventDefault();
+                    addToMyCart(product);
+                  }}
+                >
                   add to cart
                 </button>
                 <Link to="/products">
@@ -44,6 +53,42 @@ const ProductDetails = props => {
                     <span className="fa fa-arrow-left" />
                   </button>
                 </Link>
+              </div>
+              <div id="accordion">
+                <div className="card">
+                  <div className="card-header" id="headingOne">
+                    <h5 className="mb-0">
+                      <button
+                        className="btn btn-link"
+                        data-toggle="collapse"
+                        data-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        RETURNS INFO
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div
+                    id="collapseOne"
+                    className="collapse show"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordion"
+                  >
+                    <div className="card-body">
+                      UK returns are free and easy! We hope you are satisfied
+                      with all of your purchases but if you ever need to return
+                      an item, you can do so within 14 days from the date your
+                      parcel arrived. Please note, we cannot offer refunds on
+                      cosmetics and pierced jewellery or on swimwear and
+                      lingerie if the hygiene seal is not in place or has been
+                      broken. Great news! We now offer a FREE Collect+ returns
+                      service via over 5,500 local stores nationwide. Click here
+                      to view our full Returns Policy.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
