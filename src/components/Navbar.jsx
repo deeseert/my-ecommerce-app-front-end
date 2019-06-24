@@ -7,8 +7,11 @@ const Navbar = props => (
   <React.Fragment>
     <nav className="navbar navbar-expand-lg navbar-light bg-light static-top">
       <div className="container">
-        <NavLink className="navbar-brand" to="#">
-          <img src="http://placehold.it/150x50?text=Logo" alt="" />
+        <NavLink className="navbar-brand" to="/">
+          <img
+            src="https://cdn1.imggmi.com/uploads/2019/5/30/3be4aa22ee5f928eff89879d7f2d8b94-full.png"
+            alt="logo"
+          />
         </NavLink>
         <button
           className="navbar-toggler"
@@ -35,13 +38,11 @@ const Navbar = props => (
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/checkout" className="nav-link">
-                Checkout
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="p-3 mb-2 bg-danger text-white">
-                {props.basket.length}
+              <NavLink
+                to="/checkout"
+                className="nav-link fa fa-shopping-basket"
+              >
+                <span>({props.basket.length})</span>
               </NavLink>
             </li>
           </ul>

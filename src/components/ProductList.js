@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import Product from "./Product";
+import { Link } from "react-router-dom";
 class ProductList extends Component {
   render() {
     return (
       <React.Fragment>
         <ul className="breadcrumb">
           <li>
-            <a href="/">Home</a> <span className="divider">/</span>
+            <Link to="/">Home</Link> <span className="divider">/</span>
           </li>
           <li>
-            <a href="/products">Products</a>{" "}
+            <Link to="/products">Products</Link>{" "}
             <span className="divider">/</span>
           </li>
         </ul>

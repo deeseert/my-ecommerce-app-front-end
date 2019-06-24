@@ -21,17 +21,47 @@ class App extends Component {
   };
 
   addToMyCart = product => {
-    console.log("Add To Card Clicked!!!!");
+    // console.log("Add To Card Clicked!!!!");
     const myCart = this.state.basket;
-    const productFound = myCart.find(item => item.id === product.id);
-    if (!productFound) {
-      this.setState({ basket: [...this.state.basket, product] });
+    // const productFound = myCart.find(item => item.id === product.id);
+    // this.setState({ basket: [...this.state.basket, product] });
+    const cartItem = myCart.find(
+      cartItem => cartItem.product.id === product.id
+    );
+    if (cartItem) {
+      cartItem.quantity++;
+      this.setState({});
+    } else {
+      const basket = [...myCart, { product, quantity: 1 }];
+      this.setState({ basket });
     }
+  };
+
+  removeFromBasket = product => {
+    const myCart = this.state.basket;
+    const cartItem = myCart.find(
+      cartItem => cartItem.product.id === product.id
+    );
+    if (cartItem && cartItem.quantity > 1) {
+      cartItem.quantity--;
+      this.setState({});
+    } else if (cartItem) {
+      this.deleteFromBasket(product);
+    }
+  };
+
+  deleteFromBasket = product => {
+    const myCart = this.state.basket;
+    const basket = myCart.filter(
+      cartItem => cartItem.product.id !== product.id
+    );
+    this.setState({ basket });
   };
 
   // const URL = "localhost/3000"
 
   componentDidMount() {
+    window.removeFromBasket = this.removeFromBasket;
     fetch("http://localhost:3000/products")
       .then(resp => resp.json())
       .then(products => this.setState({ products }));
@@ -74,6 +104,9 @@ class App extends Component {
               <CartList
                 {...props}
                 basket={this.state.basket}
+                deleteFromBasket={this.deleteFromBasket}
+                removeFromBasket={this.removeFromBasket}
+                addToMyCart={this.addToMyCart}
                 // selectedProduct={this.state.selectedProduct}
               />
             )}
@@ -91,7 +124,13 @@ class App extends Component {
               if (this.state.products.length > 0 && product === undefined)
                 return <h1>Product not found bro!</h1>;
 
-              return <ProductDetails {...props} product={product} />;
+              return (
+                <ProductDetails
+                  {...props}
+                  product={product}
+                  addToMyCart={this.addToMyCart}
+                />
+              );
             }}
           />
           <Route component={props => <h1>404 - not Found</h1>} />

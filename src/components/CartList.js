@@ -1,45 +1,97 @@
 import React, { Component } from "react";
-
-import { Route, Switch } from "react-router-dom";
-
-import Checkout from "./payment-form-components/Chekout";
-import SignUpSuccess from "./payment-form-components/SignUpSuccess";
+import { Link } from "react-router-dom";
+import CartProduct from "./CartProduct";
+// import Checkout from "./payment-form-components/Chekout";
+// import SignUpSuccess from "./payment-form-components/SignUpSuccess";
 
 class CartList extends Component {
-  state = {};
-
-  // handleSubmit = () => {
-  //   console.log("Submit clicked in the payment field");
-  // };
-
-  // handleSubmitForm = event => {
-  //   event.preventDefault();
-  //   console.log("Submit clicked in the payment field");
-  // };
-
   render() {
     return (
-      <div>
-        <Switch>
+      
+//        <div>
+//         <Switch>
           
-          <Route
-            exact
-            path={"/checkout"}
-            component={props => (
-              <Checkout
-                {...props}
-                basket={this.props.basket}
-                handleSubmit={this.handleSubmit}
-                handleSubmitForm={this.handleSubmitForm}
-              />
-            )}
-          />
+//           <Route
+//             exact
+//             path={"/checkout"}
+//             component={props => (
+//               <Checkout
+//                 {...props}
+//                 basket={this.props.basket}
+//                 handleSubmit={this.handleSubmit}
+//                 handleSubmitForm={this.handleSubmitForm}
+//               />
+//             )}
+//           />
 
-          <Route path={"/order-submitted"} component={props => ({ ...props })}>
-            <SignUpSuccess />
-          </Route>
-        </Switch>
-      </div>
+//           <Route path={"/order-submitted"} component={props => ({ ...props })}>
+//             <SignUpSuccess />
+//           </Route>
+//         </Switch>
+//       </div>
+      
+      
+      <React.Fragment>
+        <div className="container">
+          <table id="cart" className="table table-hover table-condensed">
+            <thead>
+              <tr>
+                <th style={{ width: "50%" }}>Product</th>
+                <th style={{ width: "10%" }}>Price</th>
+                <th
+                  style={{
+                    width: "8 %"
+                  }}
+                >
+                  Quantity
+                </th>
+                <th style={{ width: "22%" }} className="text-center">
+                  Subtotal
+                </th>
+                <th style={{ width: "10%" }} />
+              </tr>
+            </thead>
+            <tbody>
+              {this.props.basket.length === 0 ? (
+                <div class="alert alert-danger large" role="alert">
+                  You dont have any product in your basket
+                </div>
+              ) : (
+                this.props.basket.map(cartProduct => (
+                  <CartProduct
+                    cartProduct={cartProduct}
+                    deleteFromBasket={this.props.deleteFromBasket}
+                    removeFromBasket={this.props.removeFromBasket}
+                    addToMyCart={this.props.addToMyCart}
+                    calculateTotalCost={this.calculateTotalCost}
+                    changeQuantity={this.changeQuantity}
+                  />
+                ))
+              )}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>
+                  <Link to="/products" className="btn btn-warning">
+                    <i className="fa fa-angle-left" /> Continue Shopping
+                  </Link>
+                </td>
+                <td colSpan="2" className="hidden-xs" />
+                <td className="hidden-xs text-center">
+                  <strong>Total: {this.props.cartProduct}</strong>
+                </td>
+                <td>
+                  <Link to="/products" className="btn btn-success btn-block">
+                    Checkout
+                    <i className="fa fa-angle-right" />
+                  </Link>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </React.Fragment>
+
     );
   }
 }
