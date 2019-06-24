@@ -13,7 +13,11 @@ class App extends Component {
     products: [],
     basket: [],
     selectedProduct: null,
-    searchTerm: ""
+    searchTerm: "",
+    user: {
+      first_name: "",
+      last_name: ""
+    }
   };
 
   addToMyCart = product => {
@@ -63,16 +67,16 @@ class App extends Component {
       .then(products => this.setState({ products }));
   }
 
-  viewdetails = product => {
+  viewDetails = product => {
     this.setState({
       selectedProduct: product
     });
   };
-  addToBasket = product => {
-    this.setState({
-      basket: [...this.state.basket, product]
-    });
-  };
+  // addToBasket = product => {
+  //   this.setState({
+  //     basket: [...this.state.basket, product]
+  //   });
+  // };
 
   render() {
     return (
@@ -88,7 +92,7 @@ class App extends Component {
               <ProductList
                 {...props}
                 products={this.state.products}
-                handleClick={this.viewdetails}
+                viewDetails={this.viewDetails}
                 addToMyCart={this.addToMyCart}
               />
             )}

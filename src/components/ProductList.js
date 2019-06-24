@@ -21,6 +21,7 @@ class ProductList extends Component {
                 key={product.id}
                 product={product}
                 addToMyCart={this.props.addToMyCart}
+                viewDetails={this.props.viewDetails}
               />
             ))}
           </div>
