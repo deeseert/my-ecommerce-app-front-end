@@ -1,3 +1,6 @@
+### Back-End Code
+This is the GitHub link for the back-end code: https://github.com/deeseert/my-ecommerce-app-back-end
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
