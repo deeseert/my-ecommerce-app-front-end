@@ -1,7 +1,7 @@
 import React from "react";
 
 const MiniBasket = props => {
-  const { product, cartProduct } = props;
+  const { cartProduct } = props;
   return (
     <React.Fragment>
       <li className="list-group-item d-flex justify-content-between lh-condensed">

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 const Product = props => {
-  const { product, handleClick, addToMyCart, viewDetails } = props;
+  const { product, addToMyCart, viewDetails } = props;
   return (
     <div
       className="col-md-3 col-sm-6"
@@ -13,13 +13,12 @@ const Product = props => {
         viewDetails(product);
       }}
     >
-      {/* <Product handleClick={() => this.props.history.push(`/products/$`)} /> */}
       <Link to={`/products/${product.id}`}>
         <div className="product-grid4">
           <div className="product-image4">
             <NavLink to="#">
-              <img className="pic-1" src={product.img_url} />
-              <img className="pic-2" src={product.backurl} />
+              <img alt="" className="pic-1" src={product.img_url} />
+              <img alt="" className="pic-2" src={product.backurl} />
             </NavLink>
             <ul className="social">
               <li>
@@ -27,11 +26,6 @@ const Product = props => {
                   <i className="fa fa-eye" />
                 </NavLink>
               </li>
-              {/* <li>
-                <NavLink to="#" data-tip="Add to Wishlist">
-                  <i className="fa fa-shopping-bag" />
-                </NavLink>
-              </li> */}
               <li>
                 <NavLink to="#" data-tip="Add to Cart">
                   <i className="fa fa-shopping-cart" />
@@ -39,9 +33,11 @@ const Product = props => {
               </li>
             </ul>
             <span className="product-new-label">
-              {product.new ? "New" : "HOT"}{" "}
+              {product.new ? "New" : "HOT"}
             </span>
-            <span className="product-discount-label">-{product.discount}%</span>
+            <span className="product-discount-label">
+              -{product.discount}%
+            </span>
           </div>
           <div className="product-content">
             <h3 className="title">

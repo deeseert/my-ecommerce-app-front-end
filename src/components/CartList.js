@@ -1,36 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import CartProduct from "./CartProduct";
-// import Checkout from "./payment-form-components/Chekout";
-// import SignUpSuccess from "./payment-form-components/SignUpSuccess";
 
 class CartList extends Component {
   render() {
     return (
-      
-//        <div>
-//         <Switch>
-          
-//           <Route
-//             exact
-//             path={"/checkout"}
-//             component={props => (
-//               <Checkout
-//                 {...props}
-//                 basket={this.props.basket}
-//                 handleSubmit={this.handleSubmit}
-//                 handleSubmitForm={this.handleSubmitForm}
-//               />
-//             )}
-//           />
-
-//           <Route path={"/order-submitted"} component={props => ({ ...props })}>
-//             <SignUpSuccess />
-//           </Route>
-//         </Switch>
-//       </div>
-      
-      
       <React.Fragment>
         <div className="container">
           <table id="cart" className="table table-hover table-condensed">
@@ -54,7 +28,7 @@ class CartList extends Component {
             <tbody>
               {this.props.basket.length === 0 ? (
                 <div class="alert alert-danger large" role="alert">
-                  You dont have any product in your basket
+                  You don't have any product in your basket
                 </div>
               ) : (
                 this.props.basket.map(cartProduct => (
@@ -91,7 +65,6 @@ class CartList extends Component {
           </table>
         </div>
       </React.Fragment>
-
     );
   }
 }

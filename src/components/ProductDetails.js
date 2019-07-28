@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "./Product";
+// import Product from "./Product";
 import { Link } from "react-router-dom";
 
 const ProductDetails = props => {
@@ -12,21 +12,21 @@ const ProductDetails = props => {
             <div className="preview col-md-6">
               <div className="preview-pic tab-content">
                 <div className="tab-pane active" id="pic-1">
-                  <img src={product.img_url} />
+                  <img alt="" src={product.img_url} />
                 </div>
                 <div className="tab-pane" id="pic-2">
-                  <img src={product.backurl} />
+                  <img alt="" src={product.backurl} />
                 </div>
               </div>
               <ul className="preview-thumbnail nav nav-tabs">
                 <li className="active">
                   <Link data-target="#pic-1" data-toggle="tab">
-                    <img src={product.img_url} />
+                    <img alt="" src={product.img_url} />
                   </Link>
                 </li>
                 <li>
                   <Link data-target="#pic-2" data-toggle="tab">
-                    <img src={product.backurl} />
+                    <img alt="" src={product.backurl} />
                   </Link>
                 </li>
               </ul>
@@ -78,14 +78,15 @@ const ProductDetails = props => {
                   >
                     <div className="card-body">
                       UK returns are free and easy! We hope you are satisfied
-                      with all of your purchases but if you ever need to return
-                      an item, you can do so within 14 days from the date your
-                      parcel arrived. Please note, we cannot offer refunds on
-                      cosmetics and pierced jewellery or on swimwear and
-                      lingerie if the hygiene seal is not in place or has been
-                      broken. Great news! We now offer a FREE Collect+ returns
-                      service via over 5,500 local stores nationwide. Click here
-                      to view our full Returns Policy.
+                      with all of your purchases but if you ever need to
+                      return an item, you can do so within 14 days from the
+                      date your parcel arrived. Please note, we cannot offer
+                      refunds on cosmetics and pierced jewellery or on
+                      swimwear and lingerie if the hygiene seal is not in
+                      place or has been broken. Great news! We now offer a
+                      FREE Collect+ returns service via over 5,500 local
+                      stores nationwide. Click here to view our full Returns
+                      Policy.
                     </div>
                   </div>
                 </div>
