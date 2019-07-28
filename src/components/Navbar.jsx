@@ -29,7 +29,7 @@ const Navbar = props => (
             <li className="nav-item active">
               <NavLink className="nav-link" to="/">
                 Home
-                <span className="sr-only">(current)</span>
+                <span className="sr-only">current</span>
               </NavLink>
             </li>
             <li className="nav-item">
@@ -42,7 +42,7 @@ const Navbar = props => (
                 to="/checkout"
                 className="nav-link fa fa-shopping-basket"
               >
-                <span>({props.basket.length})</span>
+                <span>{props.basket.length}</span>
               </NavLink>
             </li>
           </ul>

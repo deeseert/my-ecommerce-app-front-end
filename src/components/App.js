@@ -5,7 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import Navbar from "./Navbar";
 import ProductList from "./ProductList";
 import ProductDetails from "./ProductDetails";
-import HomaPage from "./Homepage";
+import HomePage from "./Homepage";
 import CartList from "./CartList";
 
 class App extends Component {
@@ -21,10 +21,7 @@ class App extends Component {
   };
 
   addToMyCart = product => {
-    // console.log("Add To Card Clicked!!!!");
     const myCart = this.state.basket;
-    // const productFound = myCart.find(item => item.id === product.id);
-    // this.setState({ basket: [...this.state.basket, product] });
     const cartItem = myCart.find(
       cartItem => cartItem.product.id === product.id
     );
@@ -72,11 +69,6 @@ class App extends Component {
       selectedProduct: product
     });
   };
-  // addToBasket = product => {
-  //   this.setState({
-  //     basket: [...this.state.basket, product]
-  //   });
-  // };
 
   render() {
     return (
@@ -84,7 +76,7 @@ class App extends Component {
         <Navbar products={this.state.products} basket={this.state.basket} />
         {/* Switch statement in order to create a 404 Page only in case the URL is wrong */}
         <Switch>
-          <Route exact path="/" component={prop => <HomaPage />} />
+          <Route exact path="/" component={prop => <HomePage />} />
           <Route
             exact
             path="/products"

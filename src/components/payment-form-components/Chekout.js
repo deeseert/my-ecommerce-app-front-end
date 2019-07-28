@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
-import CartProduct from "../CartProduct";
-import SignUpFormPage from "./SignUpForm";
+// import CartProduct from "../CartProduct";
+// import SignUpFormPage from "./SignUpForm";
 import SignUpSuccess from "./SignUpSuccess";
 import MiniBasket from "./MiniBasket";
 
@@ -241,7 +241,7 @@ class Checkout extends Component {
                         required=""
                       />
                       <label className="custom-control-label" for="paypal">
-                        Paypal
+                        PayPal
                       </label>
                     </div>
                   </div>
@@ -317,26 +317,6 @@ class Checkout extends Component {
           </div>
         </React.Fragment>
       );
-    // return (
-    //   <div className="Checkout">
-    //     {this.state.submitted ? null : (
-    //       // <SignUpSuccess
-    //       //   onSubmit={this.onSubmit}
-    //       //   submitted={this.state.submitted}
-    //       // />
-    //       <>
-    //         {this.props.basket.map(product => (
-    //           <CartProduct product={product} />
-    //         ))}
-    //         <SignUpFormPage
-    //           basket={this.props.basket}
-    //           onSubmit={this.onSubmit}
-    //           submitted={this.state.submitted}
-    //         />
-    //       </>
-    //     )}
-    //   </div>
-    // );
   }
 }
 

@@ -5,10 +5,7 @@ class SignUpSuccess extends Component {
   render() {
     return (
       <div>
-        <h1>
-          Your account has been created...Your data has been stolen and exposed
-          to the entire world...Good luck with that now! :)
-        </h1>
+        <h1>Your account has been successfully created!</h1>
         <h2>P.S. We love you!</h2>
       </div>
     );
